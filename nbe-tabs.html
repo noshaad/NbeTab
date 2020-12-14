@@ -1,0 +1,61 @@
+<html>
+
+<head>
+
+<title>
+noshad bagher ehzari tabs
+</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style>
+.nbe-tab-title-whole {
+    display: flex;
+    padding: 10px 0;
+}
+
+.nbe-tab-title {
+    margin-right: 10px;
+	cursor: pointer;
+}
+.nbe-tab-content {
+    background: red;
+    display: none;
+    color: white;
+}
+
+</style>
+</head>
+<body>
+
+<div class="nbe-tab-title-whole">
+	<div class="nbe-tab-title active" data-link="same1">tabe title 1</div>
+	<div class="nbe-tab-title" data-link="same2">tabe title 2</div>
+	<div class="nbe-tab-title" data-link="same3">tabe title 3</div>
+	<div class="nbe-tab-title" data-link="same4">tabe title 4</div>
+</div>
+
+<div class="nbe-tab-content-whole">
+	<div class="nbe-tab-content" data-link="same1">tab content 1</div>
+	<div class="nbe-tab-content" data-link="same2">tab content 2</div>
+	<div class="nbe-tab-content" data-link="same3">tab content 3</div>
+	<div class="nbe-tab-content" data-link="same4">tab content 4</div>
+</div>
+
+<script>
+$(document).ready(function(){
+	let activeTabBeShown = $('.nbe-tab-title.active').attr('data-link');
+	$('.nbe-tab-content[data-link='+ activeTabBeShown +']').show();
+	
+	$('.nbe-tab-title').on('click',function(){
+		$('.nbe-tab-title').removeClass('active');
+		$(this).addClass('active')
+		let activeTabBeShown = $('.nbe-tab-title.active').attr('data-link');
+		$('.nbe-tab-content').hide();
+	$('.nbe-tab-content[data-link='+ activeTabBeShown +']').show();
+	});
+})
+
+</script>
+</body>
+
+
+</html>
